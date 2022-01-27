@@ -1,7 +1,7 @@
 import HeaderBtns from "./header-buttons/header-buttons";
 import "./header.scss";
 
-const Header = (props) => {
+const Header = () => {
   return (
     <div className="app__header header">
       <h1 className="header__text">ToDo List React+Redux</h1>
