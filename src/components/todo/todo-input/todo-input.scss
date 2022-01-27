@@ -1,0 +1,41 @@
+@import "../../../_variables.scss";
+
+.todo-input {
+  position: relative;
+  height: 50px;
+  &__plus {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: $mainColor;
+    background-color: $accentColor;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 0px #000;
+    border: none;
+    span {
+      transition: transform 0.3s ease 0s;
+    }
+    &:hover {
+      span {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  &__input {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    color: $mainColor;
+    border-radius: 30px;
+    border: 1px solid #000;
+    font-size: 20px;
+    padding: 0px 60px 0px 20px;
+  }
+}
