@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilterAction } from "../../../redux/reducers/todosReducer";
 
-import "./header-buttons.scss";
+import classes from "./Filter.module.scss";
 
-const headerButtons = [
+const filterBtns = [
   {
     name: "all",
     text: "All",
@@ -18,7 +18,7 @@ const headerButtons = [
   },
 ];
 
-const HeaderBtns = () => {
+const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector((state) => state.filter);
   const onFilterChange = (name) => {
@@ -26,12 +26,14 @@ const HeaderBtns = () => {
   };
 
   return (
-    <div className="header__buttons">
-      {headerButtons.map((el) => {
+    <div className={classes.filter}>
+      {filterBtns.map((el) => {
         return (
           <button
             className={
-              filter === el.name ? "header__btn active" : "header__btn"
+              filter === el.name
+                  ? `${classes.btn} ${classes.active}`
+                  : `${classes.btn}`
             }
             onClick={() => {
               onFilterChange(el.name);
@@ -45,4 +47,4 @@ const HeaderBtns = () => {
   );
 };
 
-export default HeaderBtns;
+export default Filter;

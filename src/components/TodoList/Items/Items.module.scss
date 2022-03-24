@@ -1,13 +1,13 @@
 @import "../../../styles/variables.scss";
 
-.todo-items {
+.items {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.todo-item {
+.item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,28 +17,33 @@
   box-shadow: 0px 0px 5px 0px #000;
   gap: 20px;
   transition: box-shadow 0.3s ease 0s;
-  &__check {
-    padding: 5px;
-    color: #fff;
-  }
-  &__text {
-    flex: 1 1 auto;
-    color: #fff;
-  }
-  &.completed {
-    box-shadow: 0px 0px 10px 0px rgb(0, 165, 0);
-    .fa-check-circle {
-      color: rgb(0, 165, 0);
-    }
-  }
-  &__delete {
-    color: $accentColor;
-    padding: 5px 10px;
-  }
   button {
     background-color: transparent;
     border: none;
     font-size: 30px;
     cursor: pointer;
   }
+}
+
+.check {
+  padding: 5px;
+  color: #fff;
+  transition: color 0.3s ease 0s;
+}
+
+.completed {
+  box-shadow: 0px 0px 10px 0px rgb(0, 165, 0);
+  .check {
+    color: rgb(0, 165, 0);
+  }
+}
+
+.text {
+  flex: 1 1 auto;
+  color: #fff;
+}
+
+.delete {
+  color: $accentColor;
+  padding: 5px 10px;
 }

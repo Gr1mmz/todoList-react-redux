@@ -4,9 +4,9 @@ import {
   removeTodoAction,
 } from "../../../redux/reducers/todosReducer";
 
-import "./todo-items.scss";
+import classes from "./Items.module.scss";
 
-const TodoItems = () => {
+const Items = () => {
   const dispatch = useDispatch();
   const todoItems = useSelector((state) => state.todos);
   const filter = useSelector((state) => state.filter);
@@ -28,18 +28,18 @@ const TodoItems = () => {
     dispatch(completeTodoAction(id));
   };
   return (
-    <div className="todo__items todo-items">
+    <div className={classes.items}>
       {filteredTodos(todoItems, filter).map(({ id, text, isCompleted }) => {
         return (
           <div
             className={
               isCompleted
-                ? "todo-items__item todo-item completed"
-                : "todo-items__item todo-item"
+                ? `${classes.item} ${classes.completed}`
+                : `${classes.item}`
             }
             key={id}>
             <button
-              className="todo-item__check"
+              className={classes.check}
               onClick={() => completeTodo(id)}>
               <i
                 className={
@@ -47,9 +47,9 @@ const TodoItems = () => {
                 }
               />
             </button>
-            <div className="todo-item__text">{text}</div>
+            <div className={classes.text}>{text}</div>
             <button
-              className="todo-item__delete"
+              className={classes.delete}
               onClick={() => removeTodo(id)}>
               <i className="fas fa-times" />
             </button>
@@ -60,4 +60,4 @@ const TodoItems = () => {
   );
 };
 
-export default TodoItems;
+export default Items;

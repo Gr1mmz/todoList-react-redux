@@ -1,12 +1,12 @@
 import "./styles/App.scss";
-import Header from "./components/header/header.jsx";
-import Todo from "./components/todo/todo";
+import Header from "./components/Header/Header.jsx";
+import TodoList from "./components/TodoList/TodoList";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Todo />
+      <TodoList />
     </div>
   );
 }

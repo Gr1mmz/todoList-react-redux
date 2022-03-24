@@ -1,11 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addTodoAction,
-  changeInputAction,
-} from "../../../redux/reducers/todosReducer";
-import "./todo-input.scss";
+import {addTodoAction, changeInputAction,} from "../../../redux/reducers/todosReducer";
+import classes from "./Input.module.scss";
 
-const TodoInput = () => {
+const Input = () => {
   const dispatch = useDispatch();
   const text = useSelector((state) => state.inputValue);
   const updateText = (text) => {
@@ -23,21 +20,23 @@ const TodoInput = () => {
     }
   };
 
+  const onKeyPressHandler = (e) => {
+    if (e.key === "Enter") addTodo(text);
+  };
+
   return (
-    <div className="todo__input todo-input">
+    <div className={classes.wrapper}>
       <input
-        className="todo-input__input"
+        className={classes.input}
         placeholder="Type your todo"
         value={text}
-        onKeyPress={(e) => {
-          if (e.key === "Enter") addTodo(text);
-        }}
-        onChange={(e) => updateText(e.target.value)}></input>
-      <button className="todo-input__plus" onClick={() => addTodo(text)}>
+        onKeyPress={(e) => onKeyPressHandler(e)}
+        onChange={(e) => updateText(e.target.value)}/>
+      <button className={classes.plus} onClick={() => addTodo(text)}>
         <span>+</span>
       </button>
     </div>
   );
 };
 
-export default TodoInput;
+export default Input;

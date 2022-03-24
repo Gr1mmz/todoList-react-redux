@@ -1,6 +1,11 @@
 @import "../../../styles/_variables.scss";
 
-.header__btn {
+.filter {
+  display: flex;
+  gap: 5px;
+}
+
+.btn {
   background-color: rgba(255, 255, 255, 0.3);
   color: #fff;
   border: 1px solid #000;
